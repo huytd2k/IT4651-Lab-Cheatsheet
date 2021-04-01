@@ -11,3 +11,8 @@ DEVICE=eth0
 BOOTPROTO=dhcp
 ONBOOT=yes
 ```
+
+## Reload network config
+```bash
+$ service network restart
+```
