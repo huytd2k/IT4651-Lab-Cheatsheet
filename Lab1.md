@@ -23,3 +23,20 @@ $ service network restart
 ```bash
 $ sysctl -w net.ipv4.ip_forward=1
 ```
+
+## Turn off default firewall rules
+```bash
+iptables -D FORWARD -j REJECT --reject-with icmp-host-prohibited
+```
+
+## Checking iptable rules
+```bash
+iptables -L -n
+```
+
+## Add NAT routing
+```bash
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+```
+
+## Change NIC name in `/etc/udev/rules.d/70-persistent-net.rules`
